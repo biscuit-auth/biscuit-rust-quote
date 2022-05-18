@@ -7,6 +7,6 @@ edition = "2021"
 proc-macro = true
 
 [dependencies]
-biscuit-auth = { path = "../biscuit-rust" }
+biscuit-auth = { path = "../biscuit-rust", features = ["temp-to-token"] }
 quote = "1.0.14"
 syn = { version = "1.0.85", features = ["full", "extra-traits"] }

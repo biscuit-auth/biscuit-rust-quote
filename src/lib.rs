@@ -22,16 +22,16 @@ pub fn block(input: TokenStream) -> TokenStream {
         parameters,
     } = syn::parse(input).unwrap();
 
-    dbg!(&datalog);
-    dbg!(&parameters);
-
     let mut builder = BlockBuilder::new();
     builder.add_code(&datalog).unwrap();
 
     let gen = quote! {
-      #datalog
+        {
+          #builder
+        }
     };
 
+    dbg!(&gen.to_string());
     gen.into()
 }
 
